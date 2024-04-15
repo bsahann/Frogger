@@ -55,29 +55,33 @@ match the game menu, opening and reading the necessary files with the read_chunk
 installing a keyboard handler to handle player input. Once these steps are completed, the game state is 
 set to 0, which indicates that the game is in the menu state. The game state will be set to 1 when the 
 ENTER-key is pressed, which indicates that the game is in the active gameplay state
-### 4.2 Game Initialization
+### 4.2 Game logic
 Our main loop starts by calling the init_game function, which sets up all the necessary elements for the 
 game to run. This includes setting the video mode, updating the color palette, opening and reading the 
 necessary files, and installing a keyboard handler for player input. Once these steps are completed, the 
 game state is set to 0, indicating that the player is currently in the menu. When the player presses the 
 enter key, the game state changes to 1 and the game begins. 
+<br />
 During the gameplay, the main loop constantly checks for keyboard input and passes it to the register for 
 the program to react to. It then initiates the logic_game function, which handles the logic for both the 
 menu and the game. In the menu part of the function, the screen is drawn and the function continues to 
 loop until the player begins the game. 
+<br />
 In the game part of the function, the program checks if any arrow keys have been pressed and adjusts 
 the frog's position accordingly. It then calls other functions to handle the overall logic of the game, such 
 as ensuring that the frog stays within the borders of the game and detecting collisions between the frog, 
 cars, and logs. Before running the collision detection functions, the program first checks whether the 
 frog is on the road or in the water, as this determines which collision detection functions to use
 
-### 4.3 Game Initialization
+### 4.3 Game Video
 The video_game function is an essential part of our game as it is responsible for updating the visuals that 
 the player sees on their screen. The function is divided into two parts: one for the menu and one for the 
 gameplay. 
+<br />
 In the menu part of the function, the necessary graphics for the menu screen are drawn. This might 
 include the title of the game, options for the player to select, and any other visual elements that are
 present on the menu screen. 
+<br />
 In the gameplay part of the function, the program calls various functions to draw the elements of the 
 game. This includes the frog, which the player controls, as well as the logs and cars, which are obstacles 
 that the player must avoid or navigate around. The draw_moving_obstacles function is responsible for 
@@ -85,7 +89,7 @@ drawing and moving these obstacles as they travel across the screen. The program
 which increases as the player progresses through the game, and any frogs that are on the desired spots. 
 All of these elements are drawn on the screen in real-time as the game is played, and the video_game 
 function is called repeatedly by the main loop to ensure that the visuals are constantly updated.
-
+<br />
 ## 5.Encountered problems
 One problem we encountered was the flickering of the text on the game screen. This issue was caused 
 by the way we were drawing our textual assets on the canvas. Every time the frog moved, we would 
@@ -99,7 +103,7 @@ Another problem we had was how to detect our frog if it was on water or log. To 
 hit detection algorithm. We want to actually check if there is a collision between the frog and any other 
 log. If there is a collision it means the frog is on log so the game should continue. If there is no collision 
 between the frog and log, it means the frog is staying on top of the water and should lose.
-
+<br />
 ## 6.Conclusion
 We successfully developed a Frogger game using x86 assembly language, implementing various 
 gameplay mechanics and features to provide a challenging and enjoyable experience for players. Despite 
